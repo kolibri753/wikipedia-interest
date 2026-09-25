@@ -1,0 +1,4 @@
+# Runtime dependencies of the skill (pinned ranges; see pyproject.toml).
+# Install:  pip install -r requirements.txt      or      uv pip install -r requirements.txt
+matplotlib>=3.8,<4
+reportlab>=4.0,<5

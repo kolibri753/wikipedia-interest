@@ -1,0 +1,580 @@
+{
+ "today": "2026-09-23",
+ "window": "2024-09-01..2026-08-31",
+ "steps": {
+  "R6 basic AQS behaviour": {
+   "en_items": 730,
+   "en_first_item": {
+    "project": "en.wikipedia",
+    "article": "Intermittent_fasting",
+    "granularity": "daily",
+    "timestamp": "2024090100",
+    "access": "all-access",
+    "agent": "user",
+    "views": 1385
+   },
+   "expected_days": 730,
+   "lowercase_title_status": 200,
+   "nonsense_title_items": 0,
+   "monthly_direct_items": 24
+  },
+  "R2 topic -> titles via Wikidata": {
+   "intermittent fasting": [
+    {
+     "qid": "Q1666254",
+     "label": "intermittent fasting",
+     "desc": "a diet that cycles between a period of fasting and non-fasti",
+     "has": [
+      "cs",
+      "de",
+      "en",
+      "es",
+      "hu",
+      "ja",
+      "ro",
+      "uk",
+      "vi"
+     ],
+     "missing": [
+      "pl",
+      "pt",
+      "tr"
+     ],
+     "disambig": false
+    },
+    {
+     "qid": "Q112575736",
+     "label": "Intermittent Fasting Can Make Us Healthier",
+     "desc": "Article published in Scientific European on 15 January 2019",
+     "has": [],
+     "missing": [
+      "cs",
+      "de",
+      "en",
+      "es",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    },
+    {
+     "qid": "Q63574657",
+     "label": "Intermittent Fasting Versus Daily Caloric Restriction for Weight Loss",
+     "desc": "clinical trial",
+     "has": [],
+     "missing": [
+      "cs",
+      "de",
+      "en",
+      "es",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    },
+    {
+     "qid": "Q79110871",
+     "label": "Intermittent Fasting as a Means to Lose Fluid Overload and Weight in Complicated Obesity",
+     "desc": "clinical trial",
+     "has": [],
+     "missing": [
+      "cs",
+      "de",
+      "en",
+      "es",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    },
+    {
+     "qid": "Q113910824",
+     "label": "Intermittent Fasting on the Incidence of Gestational Diabetes Mellitus Obese Pregnant Women in 3rd Trimester",
+     "desc": "clinical trial",
+     "has": [],
+     "missing": [
+      "cs",
+      "de",
+      "en",
+      "es",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    }
+   ],
+   "astronomy": [
+    {
+     "qid": "Q333",
+     "label": "astronomy",
+     "desc": "natural science studying celestial objects and phenomena in ",
+     "has": [
+      "cs",
+      "de",
+      "en",
+      "es",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "missing": [],
+     "disambig": false
+    },
+    {
+     "qid": "Q752075",
+     "label": "Astronomy and Astrophysics",
+     "desc": "scientific journal covering theoretical, observational, and ",
+     "has": [
+      "cs",
+      "de",
+      "en",
+      "es",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "uk",
+      "vi"
+     ],
+     "missing": [
+      "hu",
+      "tr"
+     ],
+     "disambig": false
+    },
+    {
+     "qid": "Q123958410",
+     "label": "Astronomy",
+     "desc": "vocal track by Conan Gray; 2021 studio recording",
+     "has": [],
+     "missing": [
+      "cs",
+      "de",
+      "en",
+      "es",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    },
+    {
+     "qid": "Q3027134",
+     "label": "Astronomy Reports",
+     "desc": "journal",
+     "has": [
+      "de",
+      "en"
+     ],
+     "missing": [
+      "cs",
+      "es",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    },
+    {
+     "qid": "Q263028",
+     "label": "Astronomy Letters",
+     "desc": "journal",
+     "has": [
+      "de",
+      "en"
+     ],
+     "missing": [
+      "cs",
+      "es",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    }
+   ],
+   "English as a second or foreign language": [
+    {
+     "qid": "Q130192",
+     "label": "English as a second or foreign language",
+     "desc": "use of English by speakers with different native languages",
+     "has": [
+      "de",
+      "en",
+      "es",
+      "tr"
+     ],
+     "missing": [
+      "cs",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    }
+   ],
+   "learning English": [
+    {
+     "qid": "Q2731224",
+     "label": "Learning English",
+     "desc": "simplified English in Voice of America",
+     "has": [
+      "cs",
+      "en",
+      "es",
+      "ja",
+      "pl",
+      "pt",
+      "uk",
+      "vi"
+     ],
+     "missing": [
+      "de",
+      "hu",
+      "ro",
+      "tr"
+     ],
+     "disambig": false
+    },
+    {
+     "qid": "Q1468309",
+     "label": "Learning English, Lesson One",
+     "desc": "1991 compilation album by Die Toten Hosen",
+     "has": [
+      "de",
+      "en",
+      "es",
+      "pl"
+     ],
+     "missing": [
+      "cs",
+      "hu",
+      "ja",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    },
+    {
+     "qid": "Q110983869",
+     "label": "Learning English Lesson Three: Mersey Beat!",
+     "desc": "",
+     "has": [
+      "de"
+     ],
+     "missing": [
+      "cs",
+      "en",
+      "es",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    },
+    {
+     "qid": "Q51967406",
+     "label": "Learning English vowels with different first-language vowel systems: perception of formant targets, formant movement, and duration",
+     "desc": "scientific article published in November 2007",
+     "has": [],
+     "missing": [
+      "cs",
+      "de",
+      "en",
+      "es",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    },
+    {
+     "qid": "Q51891497",
+     "label": "Learning English vowels with different first-language vowel systems II: Auditory training for native Spanish and German speakers",
+     "desc": "scientific article published in August 2009",
+     "has": [],
+     "missing": [
+      "cs",
+      "de",
+      "en",
+      "es",
+      "hu",
+      "ja",
+      "pl",
+      "pt",
+      "ro",
+      "tr",
+      "uk",
+      "vi"
+     ],
+     "disambig": false
+    }
+   ]
+  },
+  "R5 redirect share + real metrics (examples)": {
+   "pl": {
+    "error": "no sitelink"
+   },
+   "cs": {
+    "title": "Přerušovaný půst",
+    "items": 728,
+    "total": 6939,
+    "redirects": [],
+    "total_with_redirects": 6939,
+    "redirect_share": 0.0,
+    "first_revision": "2020-10-28",
+    "verdict": "declining",
+    "magnitude": "large",
+    "trust": 50,
+    "yoy": -0.536384728960135,
+    "annualized": -0.425578487621034,
+    "months_up": 0,
+    "p": 0.0014961642897455528,
+    "spike_share": 0.16803574002017582,
+    "top_spike": [
+     {
+      "date": "2025-04-14",
+      "views": 508,
+      "excess": 494
+     }
+    ],
+    "per_million_median": 3.767393256251541,
+    "reasons": [
+     "Very low volume: median ~208 views/month. Percent changes on numbers this small are mostly noise.",
+     "Noticeable spikes: 17% of views came from 11 spike day(s) (largest: 2025-04-14 with 508 views)."
+    ]
+   },
+   "uk": {
+    "title": "Астрономія",
+    "items": 730,
+    "total": 23322,
+    "redirects": [
+     {
+      "title": "Astronomy",
+      "total": 4
+     }
+    ],
+    "total_with_redirects": 23326,
+    "redirect_share": 0.0,
+    "first_revision": "2004-02-26",
+    "verdict": "declining",
+    "magnitude": "large",
+    "trust": 75,
+    "yoy": -0.596003370651258,
+    "annualized": -0.6403653422037415,
+    "months_up": 0,
+    "p": 0.0014961642897455528,
+    "spike_share": 0.023578839063705736,
+    "top_spike": [
+     {
+      "date": "2025-09-02",
+      "views": 116,
+      "excess": 86
+     }
+    ],
+    "per_million_median": 10.169277771795077,
+    "reasons": [
+     "Low volume: median ~611 views/month; treat percentage changes as indicative only.",
+     "Month-to-month volatility is high (CV=0.97)."
+    ]
+   },
+   "en": {
+    "title": "Intermittent fasting",
+    "items": 730,
+    "total": 343065,
+    "redirects": [
+     {
+      "title": "Alternate day fasting",
+      "total": 100
+     },
+     {
+      "title": "Every other day fasting",
+      "total": 39
+     },
+     {
+      "title": "EOD fasting",
+      "total": 38
+     },
+     {
+      "title": "Alternate-day fasting",
+      "total": 171
+     },
+     {
+      "title": "5:2 diet",
+      "total": 7127
+     },
+     {
+      "title": "5/2 diet",
+      "total": 20
+     },
+     {
+      "title": "Fast diet",
+      "total": 77
+     },
+     {
+      "title": "Five-two",
+      "total": 49
+     },
+     {
+      "title": "Intermittant fasting",
+      "total": 75
+     },
+     {
+      "title": "Time-restricted feeding",
+      "total": 619
+     },
+     {
+      "title": "Intermittent energy restriction",
+      "total": 69
+     },
+     {
+      "title": "Intermittent calorie restriction",
+      "total": 34
+     },
+     {
+      "title": "Intermittent feeding",
+      "total": 50
+     },
+     {
+      "title": "Bolus feeding",
+      "total": 77
+     },
+     {
+      "title": "Time-restricted fasting",
+      "total": 29
+     },
+     {
+      "title": "Periodic fasting",
+      "total": 22
+     },
+     {
+      "title": "Omad diet",
+      "total": 136
+     },
+     {
+      "title": "One meal a day diet",
+      "total": 231
+     },
+     {
+      "title": "Warrior diet",
+      "total": 497
+     },
+     {
+      "title": "Fat fasting",
+      "total": 46
+     },
+     {
+      "title": "Time-restricted eating",
+      "total": 780
+     },
+     {
+      "title": "Time restricted eating",
+      "total": 87
+     },
+     {
+      "title": "OMAD",
+      "total": 843
+     },
+     {
+      "title": "Early time restricted feeding",
+      "total": 31
+     },
+     {
+      "title": "One meal a day",
+      "total": 19
+     }
+    ],
+    "total_with_redirects": 354331,
+    "redirect_share": 0.032,
+    "first_revision": "2008-11-07",
+    "verdict": "declining",
+    "magnitude": "large",
+    "trust": 90,
+    "yoy": -0.5272291219844714,
+    "annualized": -0.4902230713251372,
+    "months_up": 0,
+    "p": 0.0014961642897455528,
+    "spike_share": 0.0008861770491433151,
+    "top_spike": [
+     {
+      "date": "2026-05-06",
+      "views": 575,
+      "excess": 314
+     }
+    ],
+    "per_million_median": 1.7578632574233772,
+    "reasons": [
+     "Month-to-month volatility is high (CV=0.53)."
+    ]
+   }
+  },
+  "timing": {
+   "requests": 1,
+   "non_200": [],
+   "median_seconds": 0.302,
+   "max_seconds": 0.302,
+   "total_seconds": 0.3
+  }
+ }
+}

@@ -1,0 +1,269 @@
+{
+  "skill_name": "wikipedia-interest",
+  "notes": "Scenarios 1-3 are the assignment's example requests verbatim (plus the languages the third one leaves open). 4 tests the ambiguous_topic stop with a real ambiguous term. 5 tests a refinement turn. Checks are programmatic and derived from failures seen in live runs; they catch known failure modes, not quality - read the transcripts. Provider aborts (rate limits exhausted, daily quota, request-size limits) are reported as a status and excluded from the pass count; re-run those with --only.",
+  "evals": [
+    {
+      "id": "pl_cs_fasting",
+      "turns": [
+        "Compare the growth of interest in intermittent fasting in Polish-language and Czech-language Wikipedia over the last two years."
+      ],
+      "expected_output": "Runs analyze for pl+cs; reports that Polish Wikipedia has no article on the topic (a finding), Czech is declining on very low volume with medium trust; no invented causes; no growth claims. Must not present the missing article as 0 views (no measurement exists).",
+      "checks": [
+        {
+          "name": "ran analyze with the right topic and languages",
+          "type": "command_regex",
+          "pattern": "analyze\\.py.*--topic\\s+[\"']?intermittent fasting[\"']?.*--langs\\s+(pl\\s+cs|cs\\s+pl)"
+        },
+        {
+          "name": "reports that Polish has no article",
+          "type": "final_regex",
+          "pattern": "(no article|does not exist|doesn't exist|missing|not covered|no Polish (Wikipedia )?article)"
+        },
+        {
+          "name": "does not claim Polish interest is growing",
+          "type": "final_not_regex",
+          "pattern": "Polish[^.]{0,60}\\b(growing|growth is|increas)"
+        },
+        {
+          "name": "does not turn the missing Polish article into '0 views'",
+          "type": "final_not_regex",
+          "pattern": "\\b(0|zero|no) (human )?(page)?views\\b(?![^.]{0,40}(article|page|data|measure))"
+        },
+        {
+          "name": "does not call Czech growing",
+          "type": "final_not_regex",
+          "pattern": "Czech[^.]{0,80}\\b(is growing|growth|increasing)\\b(?![^.]{0,40}(no|not|declin))"
+        },
+        {
+          "name": "mentions trust or reliability",
+          "type": "final_regex",
+          "pattern": "trust|reliab|confiden"
+        },
+        {
+          "name": "names the Czech article analysed",
+          "type": "final_regex",
+          "pattern": "Přerušovaný|Prerusovany"
+        },
+        {
+          "name": "no unsupported causes for spikes or drops",
+          "type": "no_unsupported_spike_causes"
+        },
+        {
+          "name": "all quoted numbers come from tool output",
+          "type": "numbers_grounded"
+        },
+        {
+          "name": "at most 3 script runs",
+          "type": "max_tool_calls",
+          "n": 3
+        },
+        {
+          "name": "finished with a final answer",
+          "type": "finished"
+        },
+        {
+          "name": "no demand or receptiveness read off pageviews",
+          "type": "no_unsupported_market_inference"
+        }
+      ]
+    },
+    {
+      "id": "uk_astronomy",
+      "turns": [
+        "We are thinking about adding an astronomy course to an educational application. Is interest in this topic growing in Ukrainian-language Wikipedia, and how much can this growth be trusted?"
+      ],
+      "expected_output": "Runs analyze for uk; says interest is declining, not growing; relays the classification caveat and the low volume; does not attribute the September spikes to the school year unless hedged.",
+      "checks": [
+        {
+          "name": "ran analyze for Ukrainian astronomy",
+          "type": "command_regex",
+          "pattern": "analyze\\.py.*--topic\\s+[\"']?astronomy[\"']?.*--langs\\s+uk\\b"
+        },
+        {
+          "name": "says the trend is declining / not growing",
+          "type": "final_regex",
+          "pattern": "declin|not growing|falling|decreas|down"
+        },
+        {
+          "name": "does not affirm growth",
+          "type": "final_not_regex",
+          "pattern": "\\b(is|has been) growing\\b(?![^.]{0,30}\\bnot\\b)"
+        },
+        {
+          "name": "relays the bot-classification caveat",
+          "type": "final_regex",
+          "pattern": "bot|classif|reclassif|automated traffic"
+        },
+        {
+          "name": "mentions volume or trust level",
+          "type": "final_regex",
+          "pattern": "volume|views/month|views per month|trust|medium|reliab"
+        },
+        {
+          "name": "no unsupported causes for spikes or drops",
+          "type": "no_unsupported_spike_causes"
+        },
+        {
+          "name": "all quoted numbers come from tool output",
+          "type": "numbers_grounded"
+        },
+        {
+          "name": "finished with a final answer",
+          "type": "finished"
+        },
+        {
+          "name": "no demand or receptiveness read off pageviews",
+          "type": "no_unsupported_market_inference"
+        }
+      ]
+    },
+    {
+      "id": "english_report",
+      "turns": [
+        "We are creating a language-learning application. Compare interest in learning English across Polish, Czech and Ukrainian Wikipedia and prepare a short PDF report: which audiences should we investigate next and why?"
+      ],
+      "expected_output": "Resolution first lands on the low-volume Q2731224 concept (`Learning English — simplified English in Voice of America`); the model notices from label/description (and the low-volume warning) and re-runs with --qid Q1860, writes notes, runs report.py. It relays the computed comparison: Ukrainian has the highest relative attention (~124 per million, ~2.8x Polish) while all three decline; which audience to *recommend* is judgment and is not graded. It must not read demand or receptiveness off pageviews.",
+      "checks": [
+        {
+          "name": "ran analyze for pl, cs and uk",
+          "type": "command_regex",
+          "pattern": "analyze\\.py.*--langs\\s+(?=.*\\bpl\\b)(?=.*\\bcs\\b)(?=.*\\buk\\b)"
+        },
+        {
+          "name": "fixed the wrong concept (Q1860 pinned or wrong concept called out)",
+          "type": "any_of",
+          "command_patterns": ["--qid\\s+Q1860", "--article"],
+          "final_patterns": [
+            "Voice of America",
+            "wrong (concept|article)",
+            "VOA"
+          ]
+        },
+        {
+          "name": "wrote analyst notes",
+          "type": "wrote_file_regex",
+          "pattern": ".{80,}"
+        },
+        {
+          "name": "ran report.py",
+          "type": "command_regex",
+          "pattern": "report\\.py"
+        },
+        {
+          "name": "a PDF report exists",
+          "type": "file_exists",
+          "glob": "**/*.pdf"
+        },
+        {
+          "name": "states that Ukrainian has the highest relative attention (from the comparison block)",
+          "type": "any_of",
+          "final_patterns": [
+            "Ukrain[^\\n]{0,200}\\b124(\\.\\d)?\\b",
+            "\\b124(\\.\\d)?\\b[^\\n]{0,120}Ukrain",
+            "Ukrain[^\\n]{0,160}(highest|largest|greatest|strongest|most)[^\\n]{0,80}(relative|share|per million|attention)",
+            "(highest|largest|greatest|strongest)[^\\n]{0,80}(relative|share|per million|attention)[^\\n]{0,80}Ukrain"
+          ]
+        },
+        {
+          "name": "states pageviews are not demand / willingness to pay",
+          "type": "final_regex",
+          "pattern": "willingness to pay|not (?:a )?(?:measure of )?demand|proxy|attention, not"
+        },
+        {
+          "name": "no unsupported causes for spikes or drops",
+          "type": "no_unsupported_spike_causes"
+        },
+        {
+          "name": "all quoted numbers come from tool output",
+          "type": "numbers_grounded"
+        },
+        {
+          "name": "finished with a final answer",
+          "type": "finished"
+        },
+        {
+          "name": "no demand or receptiveness read off pageviews",
+          "type": "no_unsupported_market_inference"
+        }
+      ]
+    },
+    {
+      "id": "ambiguous_mercury",
+      "turns": ["Is interest in Mercury growing on Spanish Wikipedia?"],
+      "expected_output": "analyze.py stops with ambiguous_topic (planet, element, god, Freddie Mercury...). The model either asks the user which one they mean or picks one explicitly with --qid and says which it chose.",
+      "checks": [
+        {
+          "name": "ran analyze for Spanish",
+          "type": "command_regex",
+          "pattern": "analyze\\.py.*--langs\\s+es\\b"
+        },
+        {
+          "name": "handled the ambiguity (asked, or pinned a QID and said which)",
+          "type": "any_of",
+          "command_patterns": ["--qid\\s+Q\\d+"],
+          "final_patterns": [
+            "which (Mercury|one|meaning)",
+            "do you mean",
+            "planet.{0,80}element|element.{0,80}planet",
+            "ambiguous",
+            "several (items|meanings|concepts)"
+          ]
+        },
+        {
+          "name": "did not silently analyse an unnamed concept",
+          "type": "final_regex",
+          "pattern": "planet|element|chemical|god|Freddie|which|mean"
+        },
+        {
+          "name": "all quoted numbers come from tool output",
+          "type": "numbers_grounded"
+        },
+        {
+          "name": "finished with a final answer",
+          "type": "finished"
+        }
+      ]
+    },
+    {
+      "id": "astronomy_refinement",
+      "turns": [
+        "Is interest in astronomy growing in Ukrainian Wikipedia?",
+        "Now add Polish and Czech and tell me which of the three audiences looks most promising, comparing them fairly."
+      ],
+      "expected_output": "Second turn re-runs analyze with all three languages and compares them on the relative (per million) measure rather than raw views.",
+      "checks": [
+        {
+          "name": "first run covered Ukrainian",
+          "type": "command_regex",
+          "pattern": "analyze\\.py.*--langs\\s+uk\\b"
+        },
+        {
+          "name": "refinement re-ran with pl, cs and uk",
+          "type": "command_regex",
+          "pattern": "analyze\\.py.*--langs\\s+(?=.*\\bpl\\b)(?=.*\\bcs\\b)(?=.*\\buk\\b)"
+        },
+        {
+          "name": "compared on the relative measure",
+          "type": "final_regex",
+          "pattern": "per million|relative|share of"
+        },
+        {
+          "name": "no unsupported causes for spikes or drops",
+          "type": "no_unsupported_spike_causes"
+        },
+        {
+          "name": "all quoted numbers come from tool output",
+          "type": "numbers_grounded"
+        },
+        {
+          "name": "finished with a final answer for both turns",
+          "type": "finished"
+        },
+        {
+          "name": "no demand or receptiveness read off pageviews",
+          "type": "no_unsupported_market_inference"
+        }
+      ]
+    }
+  ]
+}

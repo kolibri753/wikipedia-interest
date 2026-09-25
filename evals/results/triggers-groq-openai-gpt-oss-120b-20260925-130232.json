@@ -1,0 +1,178 @@
+{
+ "model": "openai/gpt-oss-120b",
+ "description": "Measure and compare how interest in a topic is changing over time across Wikipedia language editions, using Wikimedia pageview data, and turn it into charts and a short shareable PDF report. Use this whenever someone wants evidence about audience interest, demand, popularity or growth for a topic, course, feature or product idea in one or more languages, countries or markets — e.g. \"is interest in X growing in Ukrainian?\", \"compare Polish vs Czech interest in Y\", \"which languages should we launch in next?\", \"is this growth real?\" — even if they do not mention Wikipedia or pageviews. Also use it to refine or re-run an earlier interest analysis with different languages, time ranges or assumptions.",
+ "recall": 1.0,
+ "precision": 1.0,
+ "false_negatives": 0,
+ "false_positives": 0,
+ "rows": [
+  {
+   "prompt": "Compare the growth of interest in intermittent fasting in Polish-language and Czech-language Wikipedia over the last two years.",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "We are thinking about adding an astronomy course to an educational application. Is interest in this topic growing in Ukrainian-language Wikipedia, and how much can this growth be trusted?",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "We are creating a language-learning application. Compare interest in learning English across the language editions we selected and prepare a short report: which audiences should we investigate next and why?",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "Is interest in meditation growing in Germany? Any data on that?",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "Which of Spanish, Portuguese or Italian should we localize our cooking app into next?",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "We sell a budgeting app. Is personal finance a growing topic among Vietnamese speakers?",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "How has attention to electric bikes changed in Dutch over the past two years?",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "Is the trend for 'cold plunge' real or just hype? Check a few languages.",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "Give me a one-page PDF on how interest in chess has evolved in Turkish and Arabic.",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "Rank these markets by how much people look up 'sourdough': Polish, Czech, Hungarian.",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "Yesterday you analyzed astronomy for Ukrainian; now add Polish and use desktop traffic only.",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "Is there an audience for board games content in Japanese? Growing or shrinking?",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "Which topics related to sleep are gaining attention in French?",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "We want evidence on whether demand for yoga is rising in Brazil before we build a course.",
+   "expected": "wikipedia-interest",
+   "picked": "wikipedia-interest",
+   "ok": true
+  },
+  {
+   "prompt": "Summarize the Wikipedia article on intermittent fasting for me.",
+   "expected": "none-or-other",
+   "picked": "wikipedia-summary",
+   "ok": true
+  },
+  {
+   "prompt": "What does the Wikipedia article about astronomy say about exoplanets?",
+   "expected": "none-or-other",
+   "picked": "wikipedia-summary",
+   "ok": true
+  },
+  {
+   "prompt": "Here is our sales CSV for Q3 — chart revenue by region.",
+   "expected": "none-or-other",
+   "picked": "csv-charts",
+   "ok": true
+  },
+  {
+   "prompt": "Our app's daily active users dropped 20% last month. What could be the cause?",
+   "expected": "none-or-other",
+   "picked": "web-research",
+   "ok": true
+  },
+  {
+   "prompt": "How do I call the Wikimedia REST API from Python?",
+   "expected": "none-or-other",
+   "picked": "web-research",
+   "ok": true
+  },
+  {
+   "prompt": "What is the population of Poland?",
+   "expected": "none-or-other",
+   "picked": "wikipedia-summary",
+   "ok": true
+  },
+  {
+   "prompt": "Translate our landing page into Czech.",
+   "expected": "none-or-other",
+   "picked": "none",
+   "ok": true
+  },
+  {
+   "prompt": "Write a Polish marketing email for our astronomy course.",
+   "expected": "none-or-other",
+   "picked": "none",
+   "ok": true
+  },
+  {
+   "prompt": "What are the latest news about Wikipedia's funding?",
+   "expected": "none-or-other",
+   "picked": "web-research",
+   "ok": true
+  },
+  {
+   "prompt": "Give me a list of the most edited Wikipedia articles this week.",
+   "expected": "none-or-other",
+   "picked": "web-research",
+   "ok": true
+  },
+  {
+   "prompt": "Explain how Wikipedia decides which articles get deleted.",
+   "expected": "none-or-other",
+   "picked": "wikipedia-summary",
+   "ok": true
+  },
+  {
+   "prompt": "Calculate the compound annual growth rate of 120 to 180 over three years.",
+   "expected": "none-or-other",
+   "picked": "none",
+   "ok": true
+  },
+  {
+   "prompt": "Which programming language should I learn for data analysis?",
+   "expected": "none-or-other",
+   "picked": "web-research",
+   "ok": true
+  },
+  {
+   "prompt": "Draft a survey to test willingness to pay for a language-learning app.",
+   "expected": "none-or-other",
+   "picked": "none",
+   "ok": true
+  }
+ ]
+}

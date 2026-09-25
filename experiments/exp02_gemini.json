@@ -1,0 +1,34 @@
+{
+ "provider": "gemini",
+ "model": "gemini-3.6-flash",
+ "tool_call_results": [
+  {
+   "prompt": "pl_cs_fasting",
+   "run": 0,
+   "tool_call": true,
+   "command": "python scripts/analyze.py --topic \"intermittent fasting\" --langs pl cs",
+   "correct": true,
+   "seconds": 3.6,
+   "prompt_tokens": 1444,
+   "text": ""
+  },
+  {
+   "prompt": "uk_astronomy",
+   "run": 0,
+   "tool_call": true,
+   "command": "python scripts/analyze.py --topic \"astronomy\" --langs uk",
+   "correct": true,
+   "seconds": 2.0,
+   "prompt_tokens": 1455,
+   "text": ""
+  }
+ ],
+ "interpretation": "*Note: Wikipedia pageview metrics measure **public attention and curiosity**, not commercial market size or willingness to pay. They are useful for evaluating relative audience engagement and directional trends across regions.*\n\n---\n\n### Key Findings Summary\n\n| Metric / Aspect | Polish Wikipedia (`pl`) | Czech Wikipedia (`cs`) |\n| :--- | :--- | :--- |\n| **Analyzed Article** | *Post przerywany* | *Přerušovaný půst* |\n| **Verdict** | **Growing** (Moderate) | **Unclear** (Moderate estimate) |\n| **Data Trust Label** | **High** (Score: 85/100) | **Medium** (Score: 40/100) |\n| **Annualized Trend** | **+18%** | +15% *(not statistically significant)* |\n| **Year-over-Year (YoY)** | **+21%** | +27% *(indicative only)* |\n| **Sustained Growth (Months Up)** | 10 of 12 months (p = 0.009) | 7 of 12 months (p = 0.39) |\n| **Median Monthly Views** | ~24,100 | ~2,600 |\n| **Relative Attention** *(per million views)* | **96.3** per million | **51.0** per million |\n\n---\n\n### Detailed Breakdown\n\n#### 1. Polish Wikipedia (*Post przerywany*)\n* **Verdict:** **Growing** (High trust: 85/100).\n* **Trend & Consistency:** Attention in Polish Wikipedia shows a statistically significant upward trajectory ($p = 0.009$). Pageviews increased in 10 out of the last 12 months compared to the same months a year prior, yielding an annualized trend of **+18%** (and a overall YoY increase of **+21%**).\n* **Attention Intensity:** With a median of ~24,100 monthly views, the article generates **96.3 views per million total Polish Wikipedia pageviews**.\n* **Caveats & Spikes:** Approximately 12% of total traffic was driven by 4 distinct spike days (notably a peak on January 7, 2026, with 9,812 views in a single day), likely linked to New Year health/diet news coverage or social media mentions.\n\n#### 2. Czech Wikipedia (*Přerušovaný půst*)\n* **Verdict:** **Unclear** (Medium trust: 40/100).\n* **Trend & Consistency:** While raw numbers show a surface-level YoY shift of +27% (and an annualized trend estimate of +15%), the direction **cannot be statistically distinguished from noise** ($p = 0.39$). Only 7 out of 12 months showed YoY increases.\n* **Attention Intensity:** The article reaches a median of ~2,600 views/month, representing **51.0 views per million total Czech Wikipedia pageviews**.\n* **Caveats & Limitations:** Due to relatively low baseline volume (~2,600 views/month), percentage figures fluctuate easily and should be treated as indicative rather than a definitive growth trend.\n\n---\n\n### Comparative Analysis\n\n1. **Relative Mindshare:** Intermittent fasting commands nearly **twice as much relative attention** among Polish Wikipedia readers (96.3 per million views) as it does among Czech readers (51.0 per million views).\n2. **Growth vs. Volatility:** Interest on Polish Wikipedia is demonstrably expanding on a sustained basis. In contrast, while interest in Czechia shows positive surface metrics, low baseline sample size prevents confirming a true growth trend over random month-to-month variation.\n3. **Next Steps for Validation:** To validate regional market demand beyond general curiosity, cross-reference these attention metrics with localized Google Search volume, commercial offer density (e.g., diet apps, catering services), and dedicated social media discussions in both countries.",
+ "checks": {
+  "mentions_trust_or_reliab": true,
+  "mentions_low_volume_for_cs": true,
+  "does_not_call_cs_growing": true,
+  "mentions_articles_used": true,
+  "mentions_proxy_caveat": true
+ }
+}

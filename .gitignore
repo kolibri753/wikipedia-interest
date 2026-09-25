@@ -1,0 +1,25 @@
+# secrets and local configuration — never commit
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets*
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# generated outputs (charts, PDFs, analysis.json) — regenerated from the recorded fixtures
+out/
+
+# scratch cache of the live probes (the probes' *_summary.json and recorded/ responses ARE committed as evidence)
+experiments/cache_exp01/
+
+# committed on purpose: evals/fixtures/cache (recorded real API responses)
+# generated eval runs are local by default; selected evidence files are force-tracked
+evals/results/
